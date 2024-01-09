@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net350</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.IMGUIModule">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TextRenderingModule">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UI">
+        <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed\UnityEngine.UI.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="BepInEx.Core" Version="5.4.19" />
+        <PackageReference Include="HarmonyX" Version="2.9.0" />
+    </ItemGroup>
+
+</Project>
