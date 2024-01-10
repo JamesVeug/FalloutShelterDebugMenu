@@ -26,6 +26,7 @@ namespace DebugMenu
 
 	    public static List<BaseWindow> AllWindows = new();
 	    
+	    private bool showDebugMenu = true;
 
         private void Awake()
         {
@@ -55,6 +56,14 @@ namespace DebugMenu
 
         private void Update()
         {
+	        if (Input.GetKeyUp(KeyCode.BackQuote))
+	        {
+		        showDebugMenu = !showDebugMenu;
+	        }
+	        
+	        if (!showDebugMenu)
+		        return;
+	        
 	        for (int i = 0; i < AllWindows.Count; i++)
 	        {
 		        if(AllWindows[i].IsActive)
@@ -66,6 +75,9 @@ namespace DebugMenu
 
         private void OnGUI()
         {
+	        if (!showDebugMenu)
+		        return;
+	        
 	        for (int i = 0; i < AllWindows.Count; i++)
 	        {
 		        if(AllWindows[i].IsActive)
