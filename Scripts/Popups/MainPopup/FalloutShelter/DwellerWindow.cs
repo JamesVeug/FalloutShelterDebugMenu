@@ -12,10 +12,18 @@ public class DwellerWindow : BaseWindow
     public override void OnGUI()
     {
         base.OnGUI();
+        
+        if(Button("Create Refugee"))
+        {
+            EDwellerRarity randomRarity = (EDwellerRarity)Random.Range(0, 4);
+            MonoSingleton<DwellerSpawner>.Instance.CreateWaitingDweller(EGender.Any, false, 0, randomRarity);
+        }
+
+
         ColumnWidth = 50;
         
         List<Dweller> buttonNames = Vault.Instance.Dwellers;
-        int rows = buttonNames.Count;
+        int rows = buttonNames.Count + 2;
         int columns = 1;
         Rect scrollableAreaSize = new Rect(new Vector2(0, 0), new Vector2(columns * ColumnWidth + (columns - 1) * 10, rows * RowHeight));
         Rect scrollViewSize = new Rect(new Vector2(0, 0), Size - new Vector2(10, 25));
