@@ -30,5 +30,10 @@ public partial class GameWindow
         {
             Plugin.Instance.ToggleWindow<DwellerWindow>();
         }
+
+        if (Window.Button("Inventory"))
+        {
+            Plugin.Instance.ToggleWindow<InventoryWindow>();
+        }
     }
 }

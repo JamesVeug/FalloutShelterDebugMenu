@@ -221,30 +221,42 @@ public abstract class DrawableGUI
     }
 
     public virtual object InputField(object value, Type type, Vector2? size = null)
+    {
+	    if (type == typeof(int))
+	    {
+		    return IntField((int)value, size);
+	    }
+	    else if (type == typeof(float))
+	    {
+		    return FloatField((float)value, size);
+	    }
+	    else if (type == typeof(string))
+	    {
+		    return TextField((string)value, size);
+	    }
+	    else if (type == typeof(string))
+	    {
+		    bool t = (bool)value;
+		    Toggle("", ref t, size);
+		    return t;
+	    }
+	    else
+	    {
+		    Label("Unsupported type: " + type);
+		    return value;
+	    }
+    }
+
+    public virtual bool Dropdown<T>(string text, Action<object> callback, Vector2? size = null)
 	{
-		if (type == typeof(int))
-		{
-			return IntField((int)value, size);
-		}
-		else if (type == typeof(float))
-		{
-			return FloatField((float)value, size);
-		}
-		else if (type == typeof(string))
-		{
-			return TextField((string)value, size);
-		}
-		else if (type == typeof(string))
-		{
-			bool t = (bool)value;
-			Toggle("", ref t, size);
-			return t;
-		}
-		else
-		{
-			Label("Unsupported type: " + type);
-			return value;
-		}
+	    bool wasPressed = Button(text, size);
+	    if (wasPressed)
+	    {
+		    Rect rect = GetPosition();
+		    rect.y += RowHeight;
+		    DropdownWindow.Show(typeof(T), callback, rect.position);
+	    }
+	    return wasPressed;
 	}
 
 	public virtual string TextField(string text, Vector2? size = null)
