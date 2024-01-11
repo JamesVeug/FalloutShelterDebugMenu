@@ -4,9 +4,13 @@ Adds an in-game menu to the FalloutShelter-Steam to view and edit some stuff
 
 ![Alt text](https://github.com/JamesVeug/FalloutShelterDebugMenu/blob/main/github.png?raw=true "a title")
 
+## Hotkeys
+- Press `~` to show/hide the debug menu.
+
 ## Supports:
-- Changing resources
-- View all Dwellers info
+- View and change resources (Main ones supported)
+- View all Dwellers info and spawn a random refugee
+- View all Inventory and sell individually (Visually broken but works)
 
 
 ## How to install
@@ -22,9 +26,12 @@ Adds an in-game menu to the FalloutShelter-Steam to view and edit some stuff
 - Add FalloutShelter .dll's as dependencies from `...Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed`
   - `Assembly-CSharp.dll`
 - Add all Unity .dll's as dependencies from `...Steam\steamapps\common\Fallout Shelter\FalloutShelter_Data\Managed`
+  - `UnityEngine.dll`
   - `UnityEngine.CoreModule.dll`
-  - `UnityEngine.IMGUIModule.dll`
+  - `UnityEngine.UnityEngine.dll`
   - `UnityEngine.UI.dll` from
+  - `UnityEngine.UIModule.dll`
+  - `UnityEngine.IMGUIModule.dll`
   - `UnityEngine.TextRenderingModule.dll`
 - Add BepInEx .dll's as dependencies from `...Steam\steamapps\common\Fallout Shelter\BepInEx\core`
   - `0Harmony.dll`

@@ -17,7 +17,7 @@ namespace DebugMenu
     {
 	    public const string PluginGuid = "jamesgames.falloutshelter.debugmenu";
 	    public const string PluginName = "Debug Menu";
-	    public const string PluginVersion = "0.1.0";
+	    public const string PluginVersion = "0.2.0";
 
 	    public static Plugin Instance;
 	    public static ManualLogSource Log;
