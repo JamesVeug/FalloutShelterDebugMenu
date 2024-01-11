@@ -7,9 +7,10 @@ public abstract class BaseWindow : DrawableGUI
 	public abstract string PopupName { get; } 
 	public abstract Vector2 Size { get; }
 	public virtual bool ClosableWindow => true; 
+	public virtual bool Draggable => true; 
 	
 	public bool IsActive = false;
-	
+
 	protected Rect windowRect = new Rect(20f, 20f, 512f, 512f);
 	protected bool isOpen = true;
 
@@ -27,11 +28,16 @@ public abstract class BaseWindow : DrawableGUI
 	{
 		int id = this.GetType().GetHashCode() + 100;
 		windowRect = GUI.Window(id, windowRect, OnWindowDraw, PopupName);
+		RectTransform blocker = Plugin.Instance.GetWindowBlocker();
+		blocker.anchoredPosition = new Vector2(windowRect.position.x, Screen.height - windowRect.position.y);
+		blocker.sizeDelta = windowRect.size;
 	}
 
 	private void OnWindowDraw(int windowID)
 	{
-		GUI.DragWindow(new Rect(25f, 0f, Size.x, 20f));
+		if (Draggable)
+			GUI.DragWindow(new Rect(25f, 0f, Size.x, 20f));
+		
 		if (ClosableWindow)
 		{
 			if (!OnClosableWindowDraw())
